@@ -28,4 +28,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "factory_bot", "~> 5.0"
   spec.add_development_dependency "byebug", "~> 11.0"
+  spec.add_development_dependency "highline", "~> 2.0"
+  spec.add_development_dependency "terminal-table", "~> 1.8"
 end

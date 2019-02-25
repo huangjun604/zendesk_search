@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'zendesk_search'
+
+ZendeskSearch::CLI.new.run
