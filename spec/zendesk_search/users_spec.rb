@@ -12,19 +12,29 @@ RSpec.describe ZendeskSearch::Users do
   describe "#find_by" do
     let(:users) { ZendeskSearch::Users.load }
 
-    it "can find user by _id" do
-      user = users.find_by(:_id, 1)
-      expect(user._id).to eq(1)
+    it "can search numbers" do
+      results = users.find_by(:id, '1')
+      expect(results.map(&:_id)).to all(eq(1))
     end
 
-    it "can find user by name" do
-      user = users.find_by(:name, 'Cross Barlow')
-      expect(user.name).to eq('Cross Barlow')
+    it "can search strings" do
+      results = users.find_by(:name, 'Cross Barlow')
+      expect(results.map(&:name)).to all(eq('Cross Barlow'))
+    end
+
+    it "can search booleans" do
+      results = users.find_by(:suspended, 'true')
+      expect(results.map(&:suspended)).to all(be_truthy)
+    end
+
+    it "can search arrays" do
+      results = users.find_by(:tags, 'Kersey')
+      expect(results.map(&:tags)).to all(include('Kersey'))
     end
 
     it "return nil if nothing find" do
       user = users.find_by(:name, 'Stephen')
-      expect(user).to be_nil
+      expect(user).to be_empty
     end
   end
 end
