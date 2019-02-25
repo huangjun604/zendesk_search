@@ -10,17 +10,4 @@ RSpec.describe ZendeskSearch::User do
       expect(user.age).to eq('30')
     end
   end
-
-  describe '#all' do
-    let(:users) { ZendeskSearch::User.all }
-
-    it 'returns a list of users' do
-      expect(users).to be_a_kind_of(Array)
-      expect(users).to all(be_an(ZendeskSearch::User))
-    end
-  end
-
-  describe '#find_by' do
-
-  end
 end
