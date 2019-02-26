@@ -1,7 +1,6 @@
 require "spec_helper"
 
 RSpec.describe ZendeskSearch::CLI do
-  describe "#run" do
 
-  end
+  let(:cli) { ZendeskSearch::CLI.new }
 end
