@@ -19,7 +19,7 @@ module ZendeskSearch
     end
 
     def find_by(attr, value)
-      find_all { |user| user[attr].to_s == value }
+      find { |user| user[attr].to_s == value }
     end
 
     private

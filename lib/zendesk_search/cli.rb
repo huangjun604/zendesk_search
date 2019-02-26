@@ -45,10 +45,10 @@ module ZendeskSearch
 
       @cli.say("Searching the <%= color('#{resource_class.to_s.downcase}', BOLD) %> for <%= color('#{term}', BOLD) %> with a value of <%= color('#{value}', BOLD) %>")
 
-      resources = resource_class.load.find_by(term, value)
+      resource = resource_class.load.find_by(term, value)
 
-      @printer.print_detail(resources)
-      @printer.print_summary(resources)
+      @printer.print_resource_table(resource)
+      @printer.print_result(resource)
     end
 
 

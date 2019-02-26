@@ -6,19 +6,14 @@ module ZendeskSearch
       @cli = cli
     end
 
-    def print_detail(resources)
-      resources.each do |resource|
-        print_separator
-        print_resource_table resource
-      end
+    def print_resource_table(resource)
+      rows = resource.each_pair.to_a
+      table = Terminal::Table.new rows: rows, headings: ['Term', 'Value']
+      cli.say table
     end
 
-    def print_summary(resources)
-      if resources.empty?
-        cli.say("No result found")
-      else
-        cli.say("<%= color('#{resources.size}', BOLD) %> results found")
-      end
+    def print_result(resource)
+      cli.say("No result found") if resource.empty?
     end
 
     def print_searchable_fields(resource_name)
@@ -35,12 +30,6 @@ module ZendeskSearch
 
     def print_separator
       cli.say("----------------------------------------------")
-    end
-
-    def print_resource_table(resource)
-      rows = resource.each_pair.to_a
-      table = Terminal::Table.new rows: rows, headings: ['Term', 'Value']
-      cli.say table
     end
   end
 end
