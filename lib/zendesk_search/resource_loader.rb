@@ -5,7 +5,6 @@ module ZendeskSearch
     end
 
     def load
-      puts "=========#{@resource_name}============="
       data = File.read(source_path)
       resources = JSON.parse(data, object_class: ZendeskSearch.const_get(@resource_name))
       ZendeskSearch.const_get("#{@resource_name}s").new(resources)
