@@ -18,10 +18,20 @@ RSpec.describe ZendeskSearch::User do
   end
 
   describe '#organization' do
-    let(:user) { ZendeskSearch::User.find_by(:organization_id, "119") }
+    context 'when user belongs to organization' do
+      let(:user) { ZendeskSearch::User.find_by(:organization_id, 119) }
 
-    it 'return related organization' do
-      expect(user.organization._id).to eq(119)
+      it "returns the related organization" do
+        expect(user.organization._id).to eq(119)
+      end
+    end
+
+    context "when user doesn't belong to any organization" do
+      let(:user) { ZendeskSearch::User.find_by("_id", 16) }
+      
+      it 'will return nil' do
+        expect(user.organization).to be_nil
+      end
     end
   end
 end

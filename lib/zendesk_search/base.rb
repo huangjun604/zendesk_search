@@ -5,6 +5,10 @@ module ZendeskSearch
       @resources ||= ResourceLoader.new(class_name).load
     end
 
+    def self.where(attr, value)
+      all.where(attr, value)
+    end
+
     def self.find_by(attr, value)
       all.find_by(attr, value)
     end
