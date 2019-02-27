@@ -1,4 +1,4 @@
-#Zendesk Search
+# Zendesk Search
 
 Zendesk Search is a command-line application to search the value from the provided data (users.json, tickets.json, organizations.json) and return the results.
 
