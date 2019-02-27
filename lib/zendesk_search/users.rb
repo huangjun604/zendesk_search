@@ -6,7 +6,7 @@ module ZendeskSearch
 
     def self.load
       data = File.read(source_path)
-      users = JSON.parse(data, object_class: OpenStruct)
+      users = JSON.parse(data, object_class: User)
       Users.new(users)
     end
 
@@ -19,7 +19,9 @@ module ZendeskSearch
     end
 
     def find_by(attr, value)
-      find { |user| user[attr].to_s == value }
+      find do |user|
+        user[attr].to_s == value || (user[attr].class == Array && user[attr].include?(value))
+      end
     end
 
     private
