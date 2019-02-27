@@ -76,11 +76,18 @@ $ bundle exec rspec
 
 ### Extensibility
 
-This project has multiple classes which used for different functionalities:
+This project has multiple classes that do different things:
 
 - Resource Class(i.e. `User`, `Organization`, `Ticket`)
 - Collection Class(i.e. `Users`, `Organizations`, `Tickets`)
 - Factory Class(i.e. `Printer`, `ResourceLoader`)
+
+This project can be easily scaled with more data sources:
+
+- Create resource class and extend `Base` class.
+- Configure valid attributes and associations.
+- Create collection class and extend `Collection` class.
+- Add new resource name to `SEARCHABLE_RESOURCES` in the CLI class.
 
 ### Simplicity
 
@@ -92,7 +99,7 @@ This project tests all the model, collection and factory classes.
 
 ### Performance
 
-This project will only load the data once to the memory. 
+This project will only load the data once to the memory.
 
 ### Robustness
 
