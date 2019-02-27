@@ -1,7 +1,6 @@
 require "spec_helper"
 
-RSpec.describe ZendeskSearch::Users do
-
+RSpec.describe ZendeskSearch::Collection do
   describe "#find_by" do
     let(:users) { ZendeskSearch::User.all }
 

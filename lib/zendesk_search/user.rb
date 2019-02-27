@@ -8,9 +8,16 @@ module ZendeskSearch
       Organization.find_by(:_id, organization_id)
     end
 
+    def tickets
+      Ticket.where(:submitter_id, _id)
+    end
+
     def association_rows
       rows = []
       rows << ["organization_name", organization.name] if organization
+      tickets.each_with_index do |ticket, index|
+        rows << ["ticket_#{index}", ticket.subject]
+      end
       rows
     end
   end
