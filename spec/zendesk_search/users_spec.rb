@@ -2,15 +2,8 @@ require "spec_helper"
 
 RSpec.describe ZendeskSearch::Users do
 
-  describe "#load" do
-    it "loads a user collection from json file" do
-      expect(ZendeskSearch::Users.load).to be_a_kind_of(ZendeskSearch::Users)
-    end
-  end
-
-
   describe "#find_by" do
-    let(:users) { ZendeskSearch::Users.load }
+    let(:users) { ZendeskSearch::User.all }
 
     it "can search numbers" do
       user = users.find_by(:_id, '1')

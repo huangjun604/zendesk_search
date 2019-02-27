@@ -1,6 +1,6 @@
 module ZendeskSearch
   class CLI
-    SEARCHABLE_RESOURCES = %w(Users)
+    SEARCHABLE_RESOURCES = %w(User)
 
     def initialize
       @cli = HighLine.new
@@ -45,7 +45,7 @@ module ZendeskSearch
 
       @cli.say("Searching the <%= color('#{resource_class.to_s.downcase}', BOLD) %> for <%= color('#{term}', BOLD) %> with a value of <%= color('#{value}', BOLD) %>")
 
-      resource = resource_class.load.find_by(term, value)
+      resource = resource_class.find_by(term, value)
 
       @printer.print_resource_table(resource)
       @printer.print_result(resource)

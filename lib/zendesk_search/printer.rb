@@ -7,13 +7,15 @@ module ZendeskSearch
     end
 
     def print_resource_table(resource)
+      return if resource.nil?
+
       rows = resource.each_pair.to_a
       table = Terminal::Table.new rows: rows, headings: ['Term', 'Value']
       cli.say table
     end
 
     def print_result(resource)
-      cli.say("No result found") if resource.empty?
+      cli.say("No result found") if resource.nil?
     end
 
     def print_searchable_fields(resource_name)
