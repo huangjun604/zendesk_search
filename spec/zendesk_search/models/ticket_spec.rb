@@ -8,10 +8,10 @@ RSpec.describe ZendeskSearch::Ticket do
   let(:users) { ZendeskSearch::Users.new([submitter, assignee]) }
   let(:organizations) { ZendeskSearch::Users.new([organization]) }
 
-  before {
+  before do
     allow(ZendeskSearch::User).to receive(:all).and_return(users)
     allow(ZendeskSearch::Organization).to receive(:all).and_return(organizations)
-  }
+  end
 
   describe '#organization' do
     context 'when tickets belongs to organization' do

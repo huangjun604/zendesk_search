@@ -8,7 +8,9 @@ module ZendeskSearch
     end
 
     def run
+      show_logo
       @cli.say("Welcome to Zendesk Search!")
+
       loop do
         exit_or_continue
         select_search_options
@@ -19,7 +21,7 @@ module ZendeskSearch
 
     def exit_or_continue
       answer = @cli.ask "Type 'quit' to exit at any time, Press 'Enter' to continue"
-      exit(0) if answer == 'quit'
+      exit_app if answer == 'quit'
     end
 
 
@@ -29,7 +31,7 @@ module ZendeskSearch
         * Press 2 to view a list of searchable fields
         * Type 'quit' to exit", ['1', '2', 'quit'] )
       when 'quit'
-        exit(0)
+        exit_app
       when '1'
         search_zendesk
       when '2'
@@ -83,6 +85,20 @@ module ZendeskSearch
 
     def enter_search_value
       @cli.ask("Enter search value")
+    end
+
+    def show_logo
+      @cli.say("@@@@ @@@@ @  @ @@@@  @@@@ @@@ @ @@   @@@ @@@@   @   @@@   @@@@ @  @\n")
+      @cli.say("  @@ @    @@ @ @  @@ @    @   @ @    @   @     @@@  @ @  @@    @  @\n")
+      @cli.say("  @  @@@  @@ @ @   @ @@@  @@  @@     @@  @@@   @ @  @ @  @     @@@@\n")
+      @cli.say(" @   @    @ @@ @   @ @     @@ @@      @@ @     @@@  @@   @     @  @\n")
+      @cli.say("@@   @    @ @@ @   @ @      @ @ @      @ @    @   @ @ @  @@  @ @  @\n")
+      @cli.say("@@@@ @@@@ @  @ @@@@  @@@@ @@@ @  @   @@@ @@@@ @   @ @  @  @@@@ @  @\n")
+    end
+
+    def exit_app
+      @cli.say("Good Bye!")
+      exit(0)
     end
   end
 end

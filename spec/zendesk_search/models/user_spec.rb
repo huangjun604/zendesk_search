@@ -9,10 +9,10 @@ RSpec.describe ZendeskSearch::User do
   let(:tickets) { ZendeskSearch::Tickets.new([ticket_0, ticket_1]) }
 
 
-  before {
+  before do
     allow(ZendeskSearch::Organization).to receive(:all).and_return(organizations)
     allow(ZendeskSearch::Ticket).to receive(:all).and_return(tickets)
-  }
+  end
 
   describe '#initalize' do
     let(:user) { ZendeskSearch::User.new({ name: 'Stephen', age: '30' }) }
@@ -56,7 +56,7 @@ RSpec.describe ZendeskSearch::User do
 
     context 'when user has no ticket' do
       let(:user) { create(:user, _id: 5) }
-      
+
       it 'will return empty list' do
         expect(user.tickets).to be_empty
       end
