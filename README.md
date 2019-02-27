@@ -103,7 +103,9 @@ This project will only load the data once to the memory.
 
 ### Robustness
 
-This project will check every user inputs. If the input is valid, it will show errors and prompt the valid inputs, for example:
+This project will check every user inputs. Inputs allows full term or prefix. For example: `external_id` and `exte` are both allowed in User search and will search the term `external_id`
+
+If the input is invalid, it will show errors and prompt the valid inputs, for example:
 
 ```
 > Select 1) User or 2) Organization or 3) Ticket
