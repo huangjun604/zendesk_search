@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["huangjun604@gmail.com"]
 
   spec.summary       = "Zendesk search app"
-  spec.description   = "Zendesk search app"
+  spec.description   = "A command-line application to search the value from the provided data"
   spec.homepage      = ""
   spec.license       = "MIT"
 
