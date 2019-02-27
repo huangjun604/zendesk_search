@@ -1,6 +1,6 @@
 module ZendeskSearch
   class CLI
-    SEARCHABLE_RESOURCES = %w(User)
+    SEARCHABLE_RESOURCES = %w(User Organization)
 
     def initialize
       @cli = HighLine.new
