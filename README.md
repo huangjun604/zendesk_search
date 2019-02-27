@@ -40,13 +40,13 @@ Select search options
 
 ### Search Zendesk
 
-When you select 1, it ask you to select the data type you want to search:
+After you select 1, it asks you to select the data type to search:
 
 ```
 Select 1) Users or 2) Tickets 3) Organizations
 ```
 
-After that, enter the search term, if your entered term is not valid
+After that, enter the search term, if your entered term is not valid, it will print prompt and ask you to enter again:
 
 ```
 Enter search term
@@ -58,11 +58,11 @@ Finally, enter the search value for this term:
 Enter search value
 ```
 
-After that, the result will be displayed as a table.
+After that, the result will be displayed in a table.
 
 ### View a list of searchable fields
 
-If you don't know what item can be searched, you can press 2 when you select the options. And the valid search items will be print out.
+If you don't know what item can be searched, you can press 2 when you select the options. And the valid search items will be printed out.
 
 ## Testing
 
@@ -84,6 +84,7 @@ This project has multiple classes that do different things:
 
 This project can be easily scaled with more data sources:
 
+- Add JSON file to `lib/zendesk_search/data` folder with correct name.
 - Create resource class and extend `Base` class.
 - Configure valid attributes and associations.
 - Create collection class and extend `Collection` class.
