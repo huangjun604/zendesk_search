@@ -7,5 +7,11 @@ module ZendeskSearch
     def organization
       Organization.find_by(:_id, organization_id)
     end
+
+    def association_rows
+      rows = []
+      rows << ["organization_name", organization.name] if organization
+      rows
+    end
   end
 end

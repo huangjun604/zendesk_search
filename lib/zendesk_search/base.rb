@@ -25,6 +25,14 @@ module ZendeskSearch
       @collection_name
     end
 
+    def rows
+      each_pair.to_a
+    end
+
+    def association_rows
+      []
+    end
+
     private
 
     def self.class_name

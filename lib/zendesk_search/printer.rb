@@ -9,7 +9,7 @@ module ZendeskSearch
     def print_resource_table(resource)
       return if resource.nil?
 
-      rows = resource.each_pair.to_a
+      rows = resource.rows + resource.association_rows
       table = Terminal::Table.new rows: rows, headings: ['Term', 'Value']
       cli.say table
     end
