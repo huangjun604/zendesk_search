@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "ffaker"
 require "zendesk_search"
 
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
