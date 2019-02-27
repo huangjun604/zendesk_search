@@ -10,14 +10,14 @@ require "zendesk_search/printer"
 require "zendesk_search/resource_loader"
 
 require "zendesk_search/collection"
-require "zendesk_search/users"
-require "zendesk_search/organizations"
-require "zendesk_search/tickets"
+require "zendesk_search/models/users"
+require "zendesk_search/models/organizations"
+require "zendesk_search/models/tickets"
 
 require "zendesk_search/base"
-require "zendesk_search/user"
-require "zendesk_search/organization"
-require "zendesk_search/ticket"
+require "zendesk_search/models/user"
+require "zendesk_search/models/organization"
+require "zendesk_search/models/ticket"
 
 
 module ZendeskSearch
