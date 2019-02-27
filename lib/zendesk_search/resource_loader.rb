@@ -14,6 +14,9 @@ module ZendeskSearch
     rescue JSON::ParserError
       puts "File #{source_path} does not have correct format, please check and run again!"
       exit(0)
+    rescue StandardError => e
+      puts e.message
+      exit(0)
     end
 
     private

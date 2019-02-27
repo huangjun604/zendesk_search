@@ -24,7 +24,7 @@ RSpec.describe ZendeskSearch::CLI do
       it "should print prompt message and quit" do
         cli.instance_variable_set :@cli, highline
         expect { cli.send(:exit_or_continue) }.to raise_error(SystemExit)
-        expect(output.string).to eq("Type 'quit' to exit at any time, Press 'Enter' to continue\n")
+        expect(output.string).to eq("Type 'quit' to exit at any time, Press 'Enter' to continue\nGood Bye!\n")
       end
     end
   end
