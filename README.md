@@ -1,39 +1,112 @@
-# ZendeskSearch
+#Zendesk Search
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/zendesk_search`. To experiment with that code, run `bin/console` for an interactive prompt.
+Zendesk Search is a command-line application to search the value from the provided data (users.json, tickets.json, organizations.json) and return the results.
 
-TODO: Delete this and the text above, and describe your gem
+## Environments
+
+Requires `ruby >= 2.6.0`
+
 
 ## Installation
 
-Add this line to your application's Gemfile:
+To install the application, cd to the root directory and invoke:
 
-```ruby
-gem 'zendesk_search'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install zendesk_search
+$ bundle install
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+To run the application, invoke:
 
-## Development
+```
+$ bundle exec exe/zendesk_search
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+And then press `Enter` to continue, you can type `quit` to exit at any time
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```
+Type 'quit' to exit at any time, Press 'Enter' to continue
+```
 
-## Contributing
+After that, select the task you want to do:
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/zendesk_search.
+```
+Select search options
+        * Press 1 to search Zendesk
+        * Press 2 to view a list of searchable fields
+        * Type 'quit' to exit
+```
 
-## License
+### Search Zendesk
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+When you select 1, it ask you to select the data type you want to search:
+
+```
+Select 1) Users or 2) Tickets 3) Organizations
+```
+
+After that, enter the search term, if your entered term is not valid
+
+```
+Enter search term
+```
+
+Finally, enter the search value for this term:
+
+```
+Enter search value
+```
+
+After that, the result will be displayed as a table.
+
+### View a list of searchable fields
+
+If you don't know what item can be searched, you can press 2 when you select the options. And the valid search items will be print out.
+
+## Testing
+
+To run the testing, invoke:
+
+```
+$ bundle exec rspec
+```
+
+## Design
+
+### Extensibility
+
+This project has multiple classes which used for different functionalities:
+
+- Resource Class(i.e. `User`, `Organization`, `Ticket`)
+- Collection Class(i.e. `Users`, `Organizations`, `Tickets`)
+- Factory Class(i.e. `Printer`, `ResourceLoader`)
+
+### Simplicity
+
+Ensure the structure and methods are best practice wherever possible.
+
+### Test Coverage
+
+This project tests all the model, collection and factory classes.
+
+### Performance
+
+This project will only load the data once to the memory. 
+
+### Robustness
+
+This project will check every user inputs. If the input is valid, it will show errors and prompt the valid inputs, for example:
+
+```
+> Select 1) User or 2) Organization or 3) Ticket
+3
+> Enter search term
+company
+> You must choose one of [_id, url, external_id, created_at, type, subject, description, priority, status, submitter_id, assignee_id, organization_id, tags, has_incidents, due_at, via].
+?
+```
+
+## Copyright
+
+Copyright © 2019 Stephen Huang
