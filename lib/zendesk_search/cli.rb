@@ -1,6 +1,6 @@
 module ZendeskSearch
   class CLI
-    SEARCHABLE_RESOURCES = %w(User Organization Ticket)
+    SEARCHABLE_RESOURCES = %w(User Ticket Organization)
 
     def initialize
       @cli = HighLine.new
@@ -45,7 +45,7 @@ module ZendeskSearch
       term = enter_search_term(resource_class)
       value = enter_search_value
 
-      @cli.say("Searching the <%= color('#{resource_class.to_s.downcase}', BOLD) %> for <%= color('#{term}', BOLD) %> with a value of <%= color('#{value}', BOLD) %>")
+      @cli.say("Searching the <%= color('#{resource_class.class_name.downcase}', BOLD) %> for <%= color('#{term}', BOLD) %> with a value of <%= color('#{value}', BOLD) %>")
 
       resource = resource_class.find_by(term, value)
 
